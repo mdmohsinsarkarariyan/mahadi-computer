@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exit & Re-Entry Visa Check Guide</title>
+
+<style>
+body{
+  font-family: Arial, sans-serif;
+  margin:0;
+  background:#f4f7f6;
+}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+  color:#00468b;
+}
+
+.step{
+  background:#fff;
+  margin:20px 0;
+  padding:15px;
+  border-radius:10px;
+  box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.step img{
+  width:100%;
+  border-radius:10px;
+}
+
+.step h3{
+  margin:10px 0;
+  color:#333;
+}
+
+.slider{
+  position:relative;
+}
+
+.slider img{
+  display:none;
+  width:100%;
+  height:400px;
+  object-fit:contain; /* keeps full image without cropping */
+  background:#000; /* optional: adds background for empty space */
+}
+
+.slider img.active{
+  display:block !important;
+}
+
+/* Default: Mobile first */
+.desktop{
+  display:none;
+}
+
+.mobile{
+  display:block;
+}
+
+/* Desktop view */
+@media(min-width:768px){
+  .desktop{
+    display:block;
+  }
+  .mobile{
+    display:none;
+  }
+}
+
+
+
+
+.buttons{
+  text-align:center;
+  margin-top:10px;
+}
+
+button{
+  padding:10px 20px;
+  border:none;
+  background:#00468b;
+  color:#fff;
+  border-radius:5px;
+  cursor:pointer;
+  margin:5px;
+}
+
+button:hover{
+  background:#003366;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Exit & Re-Entry Visa Status Check</h1>
+
+<div class="slider">
+<!-- Desktop Images -->
+<img src="./Exitphoto/imaga1.png" class="desktop">
+<img src="./Exitphoto/image1.png" class="desktop">
+<img src="./Exitphoto/image2.png" class="desktop">
+<img src="./Exitphoto/image3.png" class="desktop">
+<img src="./Exitphoto/image4.png" class="desktop">
+<img src="./Exitphoto/image5.png" class="desktop">
+<img src="./Exitphoto/image6.png" class="desktop">
+<img src="./Exitphoto/image7.png" class="desktop">
+<img src="./Exitphoto/image8.png" class="desktop">
+
+
+<!-- Mobile Images -->
+<img src="./Mobile/1.jpg" class="mobile">
+<img src="./Mobile/3.jpg" class="mobile">
+<img src="./Mobile/4.jpg" class="mobile">
+<img src="./Mobile/5.jpg" class="mobile">
+<img src="./Mobile/6.jpg" class="mobile">
+<img src="./Mobile/7.jpg" class="mobile">
+<img src="./Mobile/8.jpg" class="mobile">
+<img src="./Mobile/9.jpg" class="mobile">
+<img src="./Mobile/10.jpg" class="mobile">
+
+</div>
+
+<div class="buttons">
+  <button onclick="prev()">⬅ Prev</button>
+  <button onclick="next()">Next ➡</button>
+</div>
+
+<!-- Audio -->
+<audio id="myVoice"></audio>
+
+
+</div>
+
+<script>
+let index = 0;
+
+// detect mobile
+const isMobile = window.innerWidth < 768;
+
+// select correct images
+const images = document.querySelectorAll(
+  isMobile ? '.slider img.mobile' : '.slider img.desktop'
+);
+
+// 🎧 voice list (image অনুযায়ী)
+let voices = [
+  "voice1.mp3",
+  "voice2.mp3",
+  "voice3.mp3",
+  "voice4.mp3",
+  "voice5.mp3",
+  "voice6.mp3",
+  "voice7.mp3",
+  "voice8.mp3",
+  "voice9.mp3"
+];
+
+let audio = document.getElementById("myVoice");
+
+function playVoice(){
+  audio.src = voices[index];
+  audio.currentTime = 0;
+  audio.play();
+}
+
+function showImage(i){
+  images.forEach(img => img.classList.remove('active'));
+  images[i].classList.add('active');
+}
+
+function next(){
+  index++;
+  if(index >= images.length) index = 0;
+  showImage(index);
+  playVoice(); // 🔊 voice play
+}
+
+function prev(){
+  index--;
+  if(index < 0) index = images.length -1;
+  showImage(index);
+  playVoice(); // 🔊 voice play
+}
+
+// প্রথম image show + voice
+showImage(0);
+playVoice();
+</script>
+
+</body>
+</html>
