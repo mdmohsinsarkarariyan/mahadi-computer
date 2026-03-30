@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BDRIS Service Guide</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&family=Hind+Siliguri&display=swap" rel="stylesheet">
+<style>
+/* =========================
+   ROOT VARIABLES
+========================= */
+:root {
+  --primary-color: #00468b;
+  --secondary-color: #25d366;
+  --accent-color: #ff9800;
+  --bg-light: #f4f7f6;
+  --text-dark: #333;
+}
+
+
+/* =========================
+   RESET
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* =========================
+   BODY
+========================= */
+body {
+  font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'Segoe UI', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+
+/* =========================
+   HEADER
+========================= */
+header {
+  background: linear-gradient(135deg, var(--primary-color), #002f5b);
+  color: white;
+  text-align: center;
+  padding: 20px 10px;
+}
+
+header h1 {
+  font-size: 22px;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+/* HEADER ELEMENTS */
+.header-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  transform: translateY(-50%);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+    .logo:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(248, 248, 248, 0.3);
+}
+
+.lang-btn {
+  position: absolute;
+  right: 10px;
+  background: var(--secondary-color);
+  border: none;
+  padding: 5px 8px;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.bn {
+  display: none;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 15px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+
+/* =========================
+   CARD
+========================= */
+.card {
+  background: white;
+  padding: 18px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  color: var(--primary-color);
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.card ul {
+  padding-left: 18px;
+}
+
+.card li {
+  margin-bottom: 6px;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--secondary-color);
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #1ebe5d;
+}
+
+
+/* =========================
+   STEP BOX
+========================= */
+.step {
+  background: var(--accent-color);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-top: 6px;
+  font-size: 14px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+  background: #222;
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: var(--accent-color);
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 22px;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .social-links a {
+    font-size: 20px;
+    margin: 5px;
+  }
+}
+
+/* =========================
+   RESPONSIVE (MOBILE)
+========================= */
+@media (max-width: 600px) {
+
+  header h1 {
+    font-size: 16px;
+    padding: 0 40px;
+  }
+
+  .card h2 {
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    left: 5px;
+    
+  }
+
+  .lang-btn {
+    width: 50px;
+    height: 28px;
+    font-size: 11px;
+    right: 5px;
+  }
+
+}
+
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.whatsapp-float a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+  transition: 0.3s;
+  text-decoration: none;
+}
+
+.whatsapp-float a:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
+.whatsapp-float i {
+  font-size: 20px;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+@media (max-width: 600px) {
+  .whatsapp-float span {
+    display: none;
+  }
+}
+
+
+</style>
+
+</head>
+
+<body>
+  
+<header>
+  <div class="header-container">
+   <a href="./index.html#Service"><img src="./images/logo.png" class="logo" alt="Logo"></a>
+
+    <h1>
+      <span class="en">Birth Certificate Service</span>
+      <span class="bn">জন্ম নিবন্ধন সেবা</span>
+    </h1>
+
+    <button class="lang-btn" onclick="toggleLang()">বাংলা</button>
+  </div>
+</header>
+
+
+
+<div class="container">
+
+<div class="grid">
+
+<div class="card">
+
+<h2>
+  <span class="en">📌 Services</span>
+ <span class="bn">📌 সেবাসমূহ</span>
+</h2>
+
+<ul>
+<li><span class="en">Birth Registration</span><span class="bn">জন্ম নিবন্ধন</span></li>
+<li><span class="en">Correction</span><span class="bn">তথ্য সংশোধন</span></li>
+<li><span class="en">Verification</span><span class="bn">যাচাই</span></li>
+<li><span class="en">Duplicate Copy</span><span class="bn"> হারানো কপি</span></li>
+</ul>
+</div>
+
+<div class="card">
+
+<h2> 
+<span class="en">📄 Documents</span>
+<span class="bn">📄 প্রয়োজনীয় কাগজ</span>
+</h2>
+
+<ul>
+<li><span class="en">Hospital Certificate</span><span class="bn">হাসপাতালের সনদ</span></li>
+<li><span class="en">Parents Birth Certificate </span><span class="bn">বাবা-মায়ের  জন্ম নিবন্ধন</span></li>
+<li><span class="en">Address Proof </span><span class="bn">ঠিকানা প্রমাণ</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h2> 
+<span class="en">💰 Fees</span>
+<span class="bn">💰 ফি</span>
+</h2>
+<ul>
+
+<li><span class="en">Within 45 days – Free</span><span class="bn">৪৫ দিনের মধ্যে – ফ্রি</span></li>
+<li><span class="en">45 days – 5 years – 25 BDT</span><span class="bn">৪৫ দিন – ৫ বছর – ২৫ টাকা</span></li>
+<li><span class="en">5+ years – 50 BDT </span><span class="bn">৫+ বছর – ৫০ টাকা</span></li>
+<li><span class="en">Correction – 100 BDT </span><span class="bn">সংশোধন – ১০০ টাকা</span></li>
+</ul>
+</div>
+
+<div class="card">
+<h2>
+ <span class="en">⏱ Time </span>
+<span class="bn">⏱ সময়</span>
+</h2>
+<p>
+  <span class="en">7 – 15 Working Days </span>
+<span class="bn">৭ – ১৫ কর্ম দিবস</span>
+</p>
+</div>
+
+<div class="card">
+<h2>
+<span class="en">🧾  Apply Steps</span>
+<span class="bn">🧾  আবেদনের ধাপ</span>
+</h2>
+
+<div class="step">
+<span class="en">1. Visit Website</span>
+<span class="bn">১. ওয়েবসাইটে যান</span>
+</div>
+<a href="https://bdris.gov.bd/" class="btn" target="_blank">
+<span class="en">Apply Now</span>
+<span class="bn">এখন আবেদন করুন</span>
+</a>
+
+
+
+<div class="step">
+<span class="en">2. Fill Form</span>
+<span class="bn">২. ফরম পূরণ করুন</span>
+</div>
+<div class="step">
+ <span class="en">3. Print Copy</span>
+<span class="bn">৩. ফরম কপি</span>
+</div>
+<div class="step">
+ <span class="en"> 4. Submit Office</span>
+<span class="bn">৪. অফিসে জমা দিন</span>
+</div>
+<div class="step">
+<span class="en"> 5. Collect Certificate</span>
+<span class="bn">৫. সাটিফিকেট সংগ্রহ</span>
+</div>
+
+</div>
+
+<div class="card">
+<h2>
+<span class="en"> 🔍 Verification</span>
+<span class="bn">🔍 যাচাই</span>
+</h2>
+
+<a href="https://everify.bdris.gov.bd/" class="btn" target="_blank">
+
+  <span class="en"> Verify Now </span>
+<span class="bn"> যাচাই করুন </span>
+</a>
+</div>
+
+</div>
+
+</div>
+
+<div class="whatsapp-float">
+    <a href="https://wa.me/966503904925" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>হেল্পলাইন</span>
+    </a>
+</div>
+
+
+<footer>
+    <div class="container">
+        <h3>যোগাযোগ করুন</h3>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> 0503904925m@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> সৌদি আরব ও বাংলাদেশ (অনলাইন)</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/Mahadicomputer2020" target="_blank"><i class="fab fa-facebook"></i></a>
+             <a href="https://m.me/Mahadicomputer2020" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+            <a href="https://www.tiktok.com/@mahadi_computer" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@mahadicomputer2020" target="_blank"><i class="fab fa-youtube"></i></a>
+             <a href="https://wa.me/966503904925" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/mahadicomputer/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mahadi-computer-a7b0163b6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+        <p style="margin-top: 20px; font-size: 12px;">&copy; 2026 মাহাদী কম্পিউটার। সকল স্বত্ব সংরক্ষিত।</p>
+    </div>
+</footer>
+
+
+<script>
+let isBangla = false;
+
+function toggleLang(){
+  isBangla = !isBangla;
+
+  document.querySelectorAll('.en').forEach(el=>{
+    el.style.display = isBangla ? 'none' : 'inline';
+  });
+
+  document.querySelectorAll('.bn').forEach(el=>{
+    el.style.display = isBangla ? 'inline' : 'none';
+  });
+
+  document.querySelector('.lang-btn').innerText = isBangla ? 'English' : 'বাংলা';
+}
+</script>
+
+</body>
+</html>

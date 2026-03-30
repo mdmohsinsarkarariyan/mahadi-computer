@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahadi Computer | Online Service Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&family=Hind+Siliguri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {
+        --primary-color: #00468b;
+        --secondary-color: #25d366;
+        --accent-color: #ff9800;
+        --bg-light: #f4f7f6;
+        --text-dark: #333;}
+    
+*   {
+        text-decoration: none;} 
+
+body {
+        font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        background-color: var(--bg-light);
+        color: var(--text-dark);}
+
+header {
+        background: var(--primary-color);
+        color: white;
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.2);}
+
+.head {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: 10px;
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+        gap: 10px 
+    }
+        
+
+header h1 {
+        font-size: 24px;
+        text-align: center;}
+
+        /* Logo */
+.logo {
+        position: absolute;
+        left: 50px;
+        width: 50px;
+        height: 50px;
+        top: 50%;
+        border-radius: 5px;
+        cursor:pointer;
+        transform: translateY(-50%);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .logo:hover {
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 5px 15px rgba(248, 248, 248, 0.3);
+}
+
+
+        /* 📱 Mobile Responsive */
+@media (max-width: 600px) {
+  .head {
+    flex-direction: row; /* logo + text পাশে থাকবে */
+    align-items: center;
+  }
+
+  header h1 {
+    font-size: 16px;
+  }
+
+  .logo {
+    width: 40px;
+    height: 40px;
+    left: 5px;
+  }
+}
+
+.hero {
+        background: linear-gradient(rgba(0, 70, 139, 0.8), rgba(0, 70, 139, 0.8)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1000');
+        background-size: cover;
+        background-position: center;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        min-height: 100vh;}
+
+section {
+        min-height: 100vh;
+        padding: 1rem; }
+
+.container{
+        width: 90%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden; }
+
+.home-content h3 {
+        font-size: 24px;
+        color: var(--accent-color);
+        min-height: 3rem; }
+
+
+
+        /* সার্ভিস সেকশন শুরু */
+
+.Service .works-section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 2rem 1rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px; }
+
+        .work-card {
+        background: var(--primary-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(54, 37, 200, 0.1);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: all 0.5s ease;
+        border:1px solid rgba(255,255,255,0.05);
+        backdrop-filter: blur(10px);
+        height: 90px;
+        }
+
+        .work-card:hover {
+        transform: translateY(-8px);
+        }
+
+        .work-icon img {
+        width: 60px;
+        height: 60px;
+        border-radius: 40%;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        padding: 8px;
+        transition: transform 0.5s ease;
+        }
+
+        .work-card:hover .work-icon img {
+        transform: rotate(360deg) scale(1.1);
+        }
+
+        .work-content h3 {
+        margin: 0;
+        font-size: 1.3rem;
+        color: #ffffff;
+        }
+
+        .work-content p {
+        margin-top: 5px;
+        color: #cccccc;
+        font-size: 0.95rem;
+        }
+
+        /* মোবাইলের জন্য */
+
+      /* Mobile Responsive */
+@media (max-width: 600px) {
+
+@media (max-width: 600px) {
+  .works-section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+ .work-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    background: #0d4d8b;
+    min-height: 140px;
+  }
+  .work-icon img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .work-content h3 {
+    font-size: 14px;
+  }
+
+  .work-content p {
+    font-size: 12px;
+  }
+}
+
+
+.service-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+        padding: 40px 0;
+        }
+
+.service-card {
+        background: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+        }
+
+.service-card:hover {
+        transform: translateY(-10px);
+        }
+
+.service-card h3 {
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--accent-color);
+        display: inline-block;
+        margin-bottom: 15px;
+        }
+
+.service-card ul {
+        list-style: none;
+        padding: 0;
+        }
+
+.service-card ul li {
+        padding: 8px 0;
+        border-bottom: 1px dashed #ddd;
+        font-size: 15px;
+        }
+
+.service-card ul li::before {
+        content: "✓ ";
+        color: var(--secondary-color);
+        font-weight: bold;
+        }
+
+.cta-buttons {
+        margin-top: 30px;
+        }
+
+.btn {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: bold;
+        transition: opacity 0.3s;
+        }
+
+.btn-whatsapp { background: var(--secondary-color); color: white; }
+.btn-call { background: var(--accent-color); color: white; }
+.btn-whatsapp { background: var(--secondary-color); color: white; }
+
+footer {
+  background: #222;
+  color: white;
+  padding: 30px 15px;
+  text-align: center;
+}
+
+footer h3 {
+  margin-bottom: 15px;
+}
+
+.contact-info p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  color: var(--accent-color);
+}
+
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 22px;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  color: var(--accent-color);
+  transform: scale(1.2);
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #ccc;
+}
+
+/* Mobile Responsive */
+@media (max-width: 600px) {
+  .social-links a {
+    font-size: 20px;
+    margin: 5px;
+  }
+}
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+
+.whatsapp-float a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 50px;
+  font-weight: bold;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: bounce 2s infinite;
+  transition: 0.3s;
+}
+
+.whatsapp-float a:hover {
+  background: #1ebe5d;
+  transform: scale(1.05);
+}
+
+.whatsapp-float i {
+  font-size: 20px;
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+
+@media (max-width: 600px) {
+  .whatsapp-float span {
+    display: none;
+  }
+}
+
+
+
+</style>
+</head>
+<body>
+
+<header>
+    <div class="head">
+        <img src="./images/logo.png" class="logo" alt="Logo">
+        <h1>মাহাদী কম্পিউটার (Mahadi Computer)</h1>
+    </div>
+</header>
+
+
+
+<section class="hero">
+    <div class="containar">
+        <h1>আপনার সকল অনলাইন আবেদনের নির্ভরযোগ্য প্রতিষ্ঠান</h1>
+        <p>সৌদি আরব ও বাংলাদেশের সকল সরকারি-বেসরকারি অনলাইন সেবা প্রদান করা হয়।</p>
+        <div class="cta-buttons">
+            <a href="https://wa.me/966503904925" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ করুন</a>
+            <a href="tel:01768363371" class="btn btn-call"><i class="fas fa-phone"></i> ইমু/কল করুন</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2eKPt7Qp7AyVlzHTgrzNJ8qfQnAKCi1dOOSXIy7oMHEl_cg/viewform?usp=dialog" class="btn btn-whatsapp"><i class="fa-solid fa-layer-group"></i> কাজের জন্য জমা দিন</a>
+        </div>
+
+           <div class="home-content">
+                  <h3 class="typing-text"></h3>
+            </div>
+    </div>
+</section>
+
+<section class="heru">
+<div class="container">
+    <div class="service-grid">
+        <div class="service-card">
+            <h3>সৌদি আরব সেবা</h3>
+            <ul>
+                <li>পাসপোর্ট মালুমাত ও ভিসা চেক</li>
+                <li>জেয়ারা ভিসার মেয়াদ বাড়ানো</li>
+                <li>হুরুব ও এক্সিট আবেদন</li>
+                <li>ইকামা ও বর্ডার নাম্বার চেক</li>
+                <li>ইন্টারন্যাশনাল ড্রাইভিং পার্মিট</li>
+                <li>আবসার, কিউয়া ও ব্যাংক একাউন্ট</li>
+                <li>গাড়ির ফাহাজ ও লাইসেন্স অ্যাপয়েন্টমেন্ট</li>
+                <li><a href="./sa.html">আরো</a></li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>বাংলাদেশ সেবা</h3>
+            <ul>
+                <li>জন্ম নিবন্ধন ও এনআইডি সংশোধন</li>
+                <li>ই-পাসপোর্ট ও পুলিশ ক্লিয়ারেন্স</li>
+                <li>জমির নামজারি ও খতিয়ান চেক</li>
+                <li>ভর্তি আবেদন ও চাকরির আবেদন</li>
+                <li>ইন্ডিয়ান ও সকল দেশের ভিসা আবেদন</li>
+                <li>বিমানের টিকেট বুকিং ও রি-কনফার্ম</li>
+                <li>ই-টিন ও পল্লী বিদ্যুৎ আবেদন</li>
+                <li><a href="./bd.html">আরো</a></li>
+            </ul>
+        </div>
+
+        <div class="service-card">
+            <h3>🎨 অন্যান্য সার্ভিস</h3>
+            <ul>
+                <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
+                <li>ব্যানার, পোস্টার ও ভিজিটিং কার্ড</li>
+                <li>কম্পিউটার সার্ভিসিং ও প্রশিক্ষণ</li>
+                <li>বিকাশ, নগদ ও মোবাইল রিচার্জ</li>
+                <li>অনলাইনে যে কোন কাজের সমাধান</li>
+                <li><a href="#">আরো</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+</section>
+
+
+<!-- Service section start -->
+<section class="Service" id="Service">
+      <div class="works-section">
+        <a href="./bdris.html" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/birth-certificate.png" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>birth-Certificate</h3>
+                        <p>New  birth-Certificate, renewal & correction service.</p>
+                  </div>
+              </div>
+          </a>
+
+          <a href="https://services.nidw.gov.bd/nid-pub/" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/images.png" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>National Id Card</h3>
+                        <p>New Nid, renewal & correction service.</p>
+                  </div>
+              </div>
+          </a>
+
+          <a href="https://www.epassport.gov.bd/landing" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/wired-flat-2464-visa.svg" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Passport</h3>
+                        <p>Responsive & modern websites.</p>
+                  </div>
+              </div>
+          </a>
+
+          <a href="https://pcc.police.gov.bd/ords/f?p=PCC:LOGIN_DESKTOP:" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/police.jfif" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Police Clearance</h3>
+                        <p>Responsive & modern websites.</p>
+                  </div>
+              </div>
+          </a>
+
+          <a href="https://www.google.com/travel/flights?sca_esv=2df5d5c022344074&rlz=1C1YTUH_enSA1200SA1200&output=search&q=google+flight+booking&source=lnms&mode_promoted=true&impression_in_search=true&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpFjzKPapEgCPgp5FnkHrr230XRHbcVpeJXrW3eYbYk1qkPCwIH_ubntUY0h410AIRFUQTmSQngO7HsoOI5nRCoDVZZADOTSaSQNw-FHdA1pIoEV5UYXJAHqWSgYa-PNyj8sBKuRZngASceW7e51mQxJdZJ0ly3SZuwSfnWoM0AhaKadFncz3Rh344_-8jc6s_zSfMmA&ved=1t:200715&ictx=111" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/ticket.png" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Air Ticket</h3>
+                        <p>Domestic & International Flight Booking.</p>
+                  </div>
+              </div>
+          </a>
+
+          <a href="./Saudi_Resident_Card.html" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/71T8LJhGaWL.png" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Saudi Resident Card</h3>
+                        <p>Iqama issue, renewal & correction service</p>
+                  </div>
+              </div>
+          </a>
+
+             <a href="https://sso.qiwa.sa/sign-in?client_id=qiwa&redirect_uri=https%3A%2F%2Fauth.qiwa.sa%2Foauth%2Fcallback&response_type=code&scope=openid+email+phone+profile&state=Ln5bCJQbjUPNuHcK-IUfGu7GwIyxRIgaxhJ-z_HR2BM&code_challenge=lQVN9roQjTh4iKW2xguyll5DNo0LaVw5ZcctAIZ_vVU&code_challenge_method=S256" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/qiwa-logo.avif" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Qiwa Service</h3>
+                        <p>Transfer, Contract & Company Services.</p>
+                  </div>
+              </div>
+          </a>
+
+             <a href="./visa.html" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/wired-flat-2464-visa.svg" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>Visa Service</h3>
+                        <p>Visit, Work & Family Visa.</p>
+                  </div>
+              </div>
+          </a>
+
+               <a href="./hrsd.html" class="work-card-link">
+              <div class="work-card">
+                  <div class="work-icon">
+                    <img src="./images/hrsd.png" alt="Passport Icon">
+                  </div>
+                  <div class="work-content">
+                        <h3>HRSD</h3>
+                        <p>Saudi E-Services Portal</p>
+                  </div>
+              </div>
+          </a>
+
+
+
+    </div>
+</section>
+  <!-- Service section End -->
+
+<div class="whatsapp-float">
+    <a href="https://wa.me/966503904925" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>হেল্পলাইন</span>
+    </a>
+</div>
+
+
+<script src="script.js"></script>
+
+<footer>
+    <div class="container">
+        <h3>যোগাযোগ করুন</h3>
+        <div class="contact-info">
+            <p><i class="fas fa-envelope"></i> 0503904925m@gmail.com</p>
+            <p><i class="fas fa-map-marker-alt"></i> সৌদি আরব ও বাংলাদেশ (অনলাইন)</p>
+        </div>
+        <div class="social-links">
+            <a href="https://www.facebook.com/Mahadicomputer2020" target="_blank"><i class="fab fa-facebook"></i></a>
+             <a href="https://m.me/Mahadicomputer2020" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+            <a href="https://www.tiktok.com/@mahadi_computer" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="https://youtube.com/@mahadicomputer2020" target="_blank"><i class="fab fa-youtube"></i></a>
+             <a href="https://wa.me/966503904925" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/mahadicomputer/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mahadi-computer-a7b0163b6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+
+
+
+        </div>
+        <p style="margin-top: 20px; font-size: 12px;">&copy; 2026 মাহাদী কম্পিউটার। সকল স্বত্ব সংরক্ষিত।</p>
+    </div>
+</footer>
+
+</body>
+</html>
