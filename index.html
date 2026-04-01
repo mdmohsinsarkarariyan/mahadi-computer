@@ -7,35 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&family=Hind+Siliguri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <style>
-.contact-form {
-  background: white;
-  padding: 20px;
-  margin-top: 20px;
-  border-radius: 10px;
-}
-
-.contact-form input,
-.contact-form select {
-  width: 100%;
-  padding: 10px;
-  margin: 8px 0;
-}
-
-.contact-form button {
-  background: #00468b;
-  color: white;
-  padding: 10px;
-  border: none;
-  width: 100%;
-  border-radius: 5px;
-}
-
-    
-
-
-
-
-    
+   
 :root {
         --primary-color: #00468b;
         --secondary-color: #25d366;
@@ -414,28 +386,7 @@ footer h3 {
         <h1>আপনার সকল অনলাইন আবেদনের নির্ভরযোগ্য প্রতিষ্ঠান</h1>
         <p>সৌদি আরব ও বাংলাদেশের সকল সরকারি-বেসরকারি অনলাইন সেবা প্রদান করা হয়।</p>
         <div class="cta-buttons">
-            <a href="https://wa.me/966503904925" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ করুন</a>
-            
-                                <div class="contact-form">
-                                      <h2>কাজের জন্য তথ্য দিন</h2>
-                                    
-                                      <input type="text" id="name" placeholder="আপনার নাম" required>
-                                      <input type="text" id="phone" placeholder="মোবাইল নাম্বার" required>
-                                    
-                                      <select id="service">
-                                        <option value="">সার্ভিস নির্বাচন করুন</option>
-                                        <option>Passport</option>
-                                        <option>Birth Certificate</option>
-                                        <option>NID Service</option>
-                                        <option>Visa Service</option>
-                                      </select>
-                                    
-                                      <button onclick="submitForm()">Submit</button>
-                                    
-                                      <p id="successMsg" style="color:green;"></p>
-                             </div>
-
-            
+            <a href="https://wa.me/966503904925" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ করুন</a>           
             <a href="tel:01768363371" class="btn btn-call"><i class="fas fa-phone"></i> ইমু/কল করুন</a>
             <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2eKPt7Qp7AyVlzHTgrzNJ8qfQnAKCi1dOOSXIy7oMHEl_cg/viewform?usp=dialog" class="btn btn-whatsapp"><i class="fa-solid fa-layer-group"></i> কাজের জন্য জমা দিন</a>
         </div>
@@ -623,51 +574,29 @@ footer h3 {
     <script src="script.js"></script>
 
 <!-- 🔥 Firebase Start -->
+<script src="script.js"></script>
+
+<!-- 🔥 Firebase Start -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-  import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-analytics.js";
 
   const firebaseConfig = {
-    apiKey: "AIzaSy...",
+    apiKey: "AIzaSyDqaqy4koUPU3ulPTDeLSqpR08-Q-AIO48",
     authDomain: "mahadi-computer.firebaseapp.com",
     projectId: "mahadi-computer",
     storageBucket: "mahadi-computer.firebasestorage.app",
     messagingSenderId: "108803064072",
-    appId: "1:108803064072:web:7509ef1f3d090841b8acbd"
+    appId: "1:108803064072:web:7509ef1f3d090841b8acbd",
+    measurementId: "G-WS0LBJW14N"
   };
 
   const app = initializeApp(firebaseConfig);
-  const db = getFirestore(app);
+  const analytics = getAnalytics(app);
 
-  window.submitForm = async function() {
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    const service = document.getElementById("service").value;
-
-    if(name === "" || phone === "" || service === ""){
-      alert("সব তথ্য দিন");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "clients"), {
-        name: name,
-        phone: phone,
-        service: service,
-        time: new Date()
-      });
-
-      document.getElementById("successMsg").innerText = "✔️ সফলভাবে জমা হয়েছে";
-      
-      document.getElementById("name").value = "";
-      document.getElementById("phone").value = "";
-      document.getElementById("service").value = "";
-
-    } catch (error) {
-      alert("Error: " + error);
-    }
-  }
+  console.log("Firebase Connected ✅");
 </script>
+<!-- 🔥 Firebase End -->
 <!-- 🔥 Firebase End -->
 
 <footer>
