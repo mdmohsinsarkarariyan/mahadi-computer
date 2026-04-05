@@ -6,7 +6,6 @@
     <title>Mahadi Computer | Online Service Center</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&family=Hind+Siliguri&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="icon" href="./images/logo.png" type="image/png">
 <style>
 :root {
         --primary-color: #00468b;
@@ -29,7 +28,40 @@ body {
 
 
 
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
 
+.popup-content {
+  position: relative;
+  max-width: 90%;
+}
+
+.popup-content img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  font-size: 22px;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
         
 /* Navbar */
 .navbar {
@@ -379,6 +411,17 @@ footer h3 {
 </head>
 <body>
 
+
+<!-- Popup Ad -->
+<div id="popupAd" class="popup">
+  <div class="popup-content">
+    <span class="close-btn" onclick="closePopup()">&times;</span>
+    <img src="./images/web.png" alt="Ad" />
+  </div>
+</div>
+
+
+
 <header>
     
         <div class="navbar">
@@ -449,6 +492,42 @@ footer h3 {
         </div>
 
         <div class="service-card">
+            <h3>🎨 জেনারেল সার্ভিস</h3>
+            <ul>
+                <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
+                <li>ব্যানার, পোস্টার ও ভিজিটিং কার্ড</li>
+                <li>কম্পিউটার সার্ভিসিং ও প্রশিক্ষণ</li>
+                <li>বিকাশ, নগদ ও মোবাইল রিচার্জ</li>
+                <li>অনলাইনে যে কোন কাজের সমাধান</li>
+                <li><a href="#">আরো</a></li>
+            </ul>
+        </div>
+
+              <div class="service-card">
+            <h3>🎨 অন্যান্য সার্ভিস</h3>
+            <ul>
+                <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
+                <li>ব্যানার, পোস্টার ও ভিজিটিং কার্ড</li>
+                <li>কম্পিউটার সার্ভিসিং ও প্রশিক্ষণ</li>
+                <li>বিকাশ, নগদ ও মোবাইল রিচার্জ</li>
+                <li>অনলাইনে যে কোন কাজের সমাধান</li>
+                <li><a href="#">আরো</a></li>
+            </ul>
+        </div>
+
+              <div class="service-card">
+            <h3>🎨 অন্যান্য সার্ভিস</h3>
+            <ul>
+                <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
+                <li>ব্যানার, পোস্টার ও ভিজিটিং কার্ড</li>
+                <li>কম্পিউটার সার্ভিসিং ও প্রশিক্ষণ</li>
+                <li>বিকাশ, নগদ ও মোবাইল রিচার্জ</li>
+                <li>অনলাইনে যে কোন কাজের সমাধান</li>
+                <li><a href="#">আরো</a></li>
+            </ul>
+        </div>
+
+              <div class="service-card">
             <h3>🎨 অন্যান্য সার্ভিস</h3>
             <ul>
                 <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
@@ -610,6 +689,8 @@ footer h3 {
   const analytics = getAnalytics(app);
 
   console.log("Firebase Connected ✅");
+
+
 </script>
 <!-- 🔥 Firebase End -->
 
