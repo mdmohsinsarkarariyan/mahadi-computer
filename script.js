@@ -25,11 +25,22 @@
   }
   type();
 
-
-
 function toggleMenu() {
   document.getElementById("navLinks").classList.toggle("active");
 }
 
+
+
+
+
+
+ function closePopup() {
+  document.getElementById("popupAd").style.display = "none";
+}
+
+// Page load হলে popup show হবে
+window.onload = function() {
+  document.getElementById("popupAd").style.display = "flex";
+};
 
     
