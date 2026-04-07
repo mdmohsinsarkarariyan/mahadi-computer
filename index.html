@@ -1,641 +1,1162 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mahadi Computer | Online Service Center</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali&family=Hind+Siliguri&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<style>
-:root {
-        --primary-color: #00468b;
-        --secondary-color: #25d366;
-        --accent-color: #ff9800;
-        --bg-light: #f4f7f6;
-        --text-dark: #333;}
-    
-*   {
-        text-decoration: none;} 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mahadi Computer | Online Service Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0b4ea2;
+      --primary-dark: #083b79;
+      --secondary: #25d366;
+      --accent: #ff9800;
+      --bg: #f4f8fc;
+      --text: #1f2937;
+      --white: #ffffff;
+      --muted: #64748b;
+      --border: rgba(11, 78, 162, 0.10);
+      --shadow: 0 12px 35px rgba(15, 23, 42, 0.10);
+      --radius: 22px;
+      --gradient: linear-gradient(135deg, #0b4ea2 0%, #0a66c2 55%, #21a0ff 100%);
+    }
 
-body {
-        font-family: 'Noto Sans Bengali', 'Hind Siliguri', 'Segoe UI', sans-serif;
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
-        background-color: var(--bg-light);
-        color: var(--text-dark);}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
 
-
-
-.popup {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.popup-content {
-  position: relative;
-  max-width: 90%;
-}
-
-.popup-content img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.close-btn {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  background: red;
-  color: #fff;
-  font-size: 22px;
-  padding: 5px 10px;
-  cursor: pointer;
-  border-radius: 50%;
-}
-        
-/* Navbar */
-.navbar {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: var(--primary-color);
-        padding: 10px 20px;
-        color: white;}
-
-                                  .logo {
-                                          display: flex;
-                                          align-items: center;
-                                          gap: 10px;
-                                          left: 50px;}
-                                  .logo img {
-                                          height: 40px;
-                                          width: auto;
-                                          cursor:pointer;
-                                          left: 50px;
-                                          width: 50px;
-                                          height: 50px;}
-                                .logo span {
-                                        font-size: 20px;
-                                        font-weight: bold;}
-
-                  /* Menu */
-                  .nav-links {
-                          display: flex;
-                          gap: 20px;}
-                  .nav-links a {
-                          color: white;
-                          text-decoration: none;
-                          font-size: 16px;}
-                  .nav-links a:hover {
-                          color: #00bcd4;}
-                  /* Hamburger */
-                  .menu-icon {
-                          display: none;
-                          font-size: 26px;
-                          cursor: pointer;}
-
-                                                                                  /* Mobile */
-                                                                                  @media (max-width: 768px) {
-                                                                                  .nav-links {
-                                                                                          position: absolute;
-                                                                                          top: 60px;
-                                                                                          left: 0;
-                                                                                          width: 100%;
-                                                                                          background: var(--primary-color);
-                                                                                          flex-direction: column;
-                                                                                          text-align: center;
-                                                                                          display: none;}
-                                                                                  .nav-links a {
-                                                                                          padding: 12px;
-                                                                                          border-top: 1px solid #1c3b5a;}
-                                                                          .nav-links.active {
-                                                                                  display: flex; }
-                                                                              .menu-icon {
-                                                                                      display: block;
-                                                                                      }
-                                                                                  }
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
 
 
-
-
-.hero {
-        background: linear-gradient(rgba(0, 70, 139, 0.8), rgba(0, 70, 139, 0.8)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1000');
-        background-size: cover;
-        background-position: center;
-        color: white;
-        padding: 1rem;
-        text-align: center;
-        min-height: 100vh;}
-
-                        section {
-                                min-height: 100vh;
-                                padding: 1rem; }
-
-                        .container{
-                                width: 90%;
-                                max-width: 1200px;
-                                margin: auto;
-                                overflow: hidden; }
-
-                        .home-content h3 {
-                                font-size: 24px;
-                                color: var(--accent-color);
-                                min-height: 3rem; }
-
-
-
-        /* সার্ভিস সেকশন শুরু */
-
-.Service .works-section {
-        max-width: 1100px;
-        margin: auto;
-        padding: 2rem 1rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px; }
-
-.work-card {
-        background: var(--primary-color);
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(54, 37, 200, 0.1);
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        transition: all 0.5s ease;
-        border:1px solid rgba(255,255,255,0.05);
-        backdrop-filter: blur(10px);
-        height: 90px;
-        }
-
-        .work-card:hover {
-        transform: translateY(-8px);
-        }
-
-        .work-icon img {
-        width: 60px;
-        height: 60px;
-        border-radius: 40%;
-        background: linear-gradient(135deg, #6a11cb, #2575fc);
-        padding: 8px;
-        transition: transform 0.5s ease;
-        }
-
-        .work-card:hover .work-icon img {
-        transform: rotate(360deg) scale(1.1);
-        }
-
-        .work-content h3 {
-        margin: 0;
-        font-size: 1.3rem;
-        color: #ffffff;
-        }
-
-        .work-content p {
-        margin-top: 5px;
-        color: #cccccc;
-        font-size: 0.95rem;
-        }
-
-        /* মোবাইলের জন্য */
-
-      /* Mobile Responsive */
-@media (max-width: 600px) {
-
-@media (max-width: 600px) {
-  .works-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-  }
-}
-
- .work-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    /* Saudi Button */
+.btn-saudi {
+    display: block;
+    margin-top: 18px;
+    padding: 12px;
+    background: #16a34a;
+    color: white;
     text-align: center;
-    padding: 20px;
-    border-radius: 15px;
-    background: #0d4d8b;
-    min-height: 140px;
-  }
-  .work-icon img {
-    width: 50px;
-    height: 50px;
-  }
+    font-weight: bold;
+    border-radius: 12px;
+    transition: 0.3s;
+}
 
-  .work-content h3 {
-    font-size: 14px;
-  }
+.btn-saudi:hover {
+    background: #15803d;
+    transform: scale(1.05);
+}
 
-  .work-content p {
-    font-size: 12px;
-  }
+/* Bangladesh Button */
+.btn-bd {
+    display: block;
+    margin-top: 18px;
+    padding: 12px;
+    background: #0b4ea2;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.btn-bd:hover {
+    background: #083b79;
+    transform: scale(1.05);
 }
 
 
-.service-grid {
+
+
+
+
+
+
+
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 28px));
+      margin: auto;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.7rem);
+      line-height: 1.2;
+      text-align: center;
+      margin-bottom: 10px;
+      color: var(--primary-dark);
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      max-width: 720px;
+      margin: 0 auto 34px;
+      font-size: 1rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255, 255, 255, 0.16);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      color: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      backdrop-filter: blur(10px);
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: .28s ease;
+      box-shadow: var(--shadow);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-primary {
+      background: var(--secondary);
+      color: var(--white);
+    }
+
+    .btn-secondary {
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .btn-light {
+      background: var(--white);
+      color: var(--primary-dark);
+    }
+
+    .topbar {
+      background: #062a57;
+      color: rgba(255,255,255,.9);
+      font-size: 14px;
+      padding: 8px 0;
+    }
+
+    .topbar-wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .topbar span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+    }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      gap: 20px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      background: var(--gradient);
+      color: var(--white);
+      display: grid;
+      place-items: center;
+      font-size: 22px;
+      box-shadow: 0 12px 28px rgba(11,78,162,.26);
+    }
+
+    .logo-text h1 {
+      font-size: 1.2rem;
+      color: var(--primary-dark);
+      line-height: 1.1;
+    }
+
+    .logo-text p {
+      font-size: .84rem;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: .25s ease;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-toggle {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      border: 1px solid rgba(11,78,162,.15);
+      background: var(--white);
+      color: var(--primary-dark);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at top left, rgba(255,255,255,.16), transparent 24%), var(--gradient);
+      color: var(--white);
+      padding: 82px 0 60px;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(255,255,255,.08);
+      pointer-events: none;
+    }
+
+    .hero::before {
+      width: 260px;
+      height: 260px;
+      top: -80px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 180px;
+      height: 180px;
+      left: -50px;
+      bottom: 40px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .hero h2 {
+      font-size: clamp(2.2rem, 6vw, 4.3rem);
+      line-height: 1.08;
+      margin-bottom: 14px;
+      font-weight: 800;
+    }
+
+    .hero p {
+      max-width: 60ch;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 24px;
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .typing-line {
+      min-height: 34px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: #ffdf91;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.14);
+      backdrop-filter: blur(12px);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.16);
+    }
+
+    .hero-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 18px;
+    }
+
+    .quick-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .quick-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      background: rgba(255,255,255,.08);
+      padding: 14px;
+      border-radius: 18px;
+    }
+
+    .quick-item i {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,.12);
+      border-radius: 14px;
+      color: #ffdf91;
+      flex-shrink: 0;
+    }
+
+    .quick-item strong {
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .stats {
+      margin-top: -34px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .stat-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 24px 18px;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .stat-card h3 {
+      font-size: 1.7rem;
+      color: var(--primary-dark);
+      margin-bottom: 4px;
+    }
+
+    .stat-card p {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    section {
+      padding: 84px 0;
+    }
+
+    .service-overview {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .overview-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      transition: .28s ease;
+    }
+
+    .overview-card:hover,
+    .service-tile:hover,
+    .feature-card:hover,
+    .contact-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .overview-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(11,78,162,.08);
+      color: var(--primary);
+      font-size: 1.45rem;
+      margin-bottom: 16px;
+    }
+
+    .overview-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 10px;
+      font-size: 1.24rem;
+    }
+
+    .overview-card ul {
+      list-style: none;
+      display: grid;
+      gap: 10px;
+      color: var(--muted);
+    }
+
+    .overview-card li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .overview-card li i {
+      color: var(--secondary);
+      margin-top: 5px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-tile {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 22px 18px;
+      box-shadow: var(--shadow);
+      transition: .28s ease;
+      text-align: left;
+    }
+
+    .service-tile .tile-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 18px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(11,78,162,.10), rgba(37,211,102,.10));
+      color: var(--primary-dark);
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+    }
+
+    .service-tile h3 {
+      color: var(--primary-dark);
+      font-size: 1.08rem;
+      margin-bottom: 8px;
+    }
+
+    .service-tile p {
+      color: var(--muted);
+      font-size: .94rem;
+    }
+
+    .why-us {
+      background: linear-gradient(180deg, #f8fbff 0%, #eef5fb 100%);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: .28s ease;
+    }
+
+    .feature-card i {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      margin-bottom: 16px;
+      background: var(--gradient);
+      color: var(--white);
+      font-size: 1.35rem;
+    }
+
+    .feature-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .feature-card p {
+      color: var(--muted);
+    }
+
+    .cta-banner {
+      background: var(--gradient);
+      color: var(--white);
+      border-radius: 30px;
+      padding: 34px 28px;
+      box-shadow: 0 22px 50px rgba(11,78,162,.22);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .cta-banner h3 {
+      font-size: clamp(1.5rem, 4vw, 2.3rem);
+      line-height: 1.2;
+      margin-bottom: 8px;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,.88);
+      max-width: 580px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 26px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: .28s ease;
+    }
+
+    .contact-card i {
+      width: 56px;
+      height: 56px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      background: rgba(11,78,162,.09);
+      color: var(--primary);
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+    }
+
+    .contact-card h3 {
+      color: var(--primary-dark);
+      margin-bottom: 8px;
+    }
+
+    .contact-card p,
+    .contact-card a {
+      color: var(--muted);
+      word-break: break-word;
+    }
+
+    footer {
+      background: #071c36;
+      color: rgba(255,255,255,.84);
+      padding: 28px 0;
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .social-links a {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: rgba(255,255,255,.08);
+      color: var(--white);
+      transition: .28s ease;
+    }
+
+    .social-links a:hover {
+      transform: translateY(-4px);
+      background: var(--accent);
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 999;
+    }
+
+    .whatsapp-float a {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--secondary);
+      color: var(--white);
+      box-shadow: 0 16px 34px rgba(37, 211, 102, 0.35);
+      font-size: 1.6rem;
+      animation: pulse 2.2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(37,211,102,.45); }
+      70% { box-shadow: 0 0 0 18px rgba(37,211,102,0); }
+      100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+    }
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1200;
+      padding: 18px;
+    }
+
+    .popup-content {
+      position: relative;
+      width: min(760px, 100%);
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,.34);
+      background: var(--white);
+    }
+
+    .popup-content img {
+      width: 100%;
+      max-height: 80vh;
+      object-fit: cover;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(0,0,0,.65);
+      color: var(--white);
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1080px) {
+      .services-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .service-overview,
+      .features-grid,
+      .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 14px;
+        left: 14px;
+        background: var(--white);
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        padding: 18px;
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .menu-toggle {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 25px;
-        padding: 40px 0;
-        }
+        place-items: center;
+      }
 
-.service-card {
-        background: white;
-        padding: 25px;
-        border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        transition: transform 0.3s ease;
-        }
+      .cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
 
-.service-card:hover {
-        transform: translateY(-10px);
-        }
+    @media (max-width: 640px) {
+      .topbar-wrap {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-.service-card h3 {
-        color: var(--primary-color);
-        border-bottom: 2px solid var(--accent-color);
-        display: inline-block;
-        margin-bottom: 15px;
-        }
+      .service-overview,
+      .features-grid,
+      .contact-grid,
+      .services-grid,
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
 
-.service-card ul {
-        list-style: none;
-        padding: 0;
-        }
+      .hero {
+        padding-top: 60px;
+      }
 
-.service-card ul li {
-        padding: 8px 0;
-        border-bottom: 1px dashed #ddd;
-        font-size: 15px;
-        }
+      .hero-buttons {
+        flex-direction: column;
+      }
 
-.service-card ul li::before {
-        content: "✓ ";
-        color: var(--secondary-color);
-        font-weight: bold;
-        }
+      .btn {
+        width: 100%;
+      }
 
-.cta-buttons {
-        margin-top: 30px;
-        }
-
-.btn {
-        display: inline-block;
-        padding: 12px 25px;
-        margin: 10px;
-        border-radius: 50px;
-        text-decoration: none;
-        font-weight: bold;
-        transition: opacity 0.3s;
-        }
-
-.btn-whatsapp { background: var(--secondary-color); color: white; }
-.btn-call { background: var(--accent-color); color: white; }
-.btn-whatsapp { background: var(--secondary-color); color: white; }
-
-footer {
-  background: #222;
-  color: white;
-  padding: 30px 15px;
-  text-align: center;
-}
-
-footer h3 {
-  margin-bottom: 15px;
-}
-
-.contact-info p {
-  margin: 8px 0;
-  font-size: 16px;
-}
-
-.contact-info a {
-  color: white;
-  text-decoration: none;
-}
-
-.contact-info a:hover {
-  color: var(--accent-color);
-}
-
-.social-links {
-  margin-top: 15px;
-}
-
-.social-links a {
-  color: white;
-  font-size: 22px;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.social-links a:hover {
-  color: var(--accent-color);
-  transform: scale(1.2);
-}
-
-.copyright {
-  margin-top: 20px;
-  font-size: 13px;
-  color: #ccc;
-}
-
-/* Mobile Responsive */
-@media (max-width: 600px) {
-  .social-links a {
-    font-size: 20px;
-    margin: 5px;
-  }
-}
-.whatsapp-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 9999;
-}
-
-.whatsapp-float a {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  background: #25d366;
-  color: white;
-  padding: 12px 16px;
-  border-radius: 50px;
-  font-weight: bold;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  animation: bounce 2s infinite;
-  transition: 0.3s;
-}
-
-.whatsapp-float a:hover {
-  background: #1ebe5d;
-  transform: scale(1.05);
-}
-
-.whatsapp-float i {
-  font-size: 20px;
-}
-
-/* Bounce Animation */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-}
-
-
-@media (max-width: 600px) {
-  .whatsapp-float span {
-    display: none;
-  }
-}
-
-
-
-</style>
+      .logo-text h1 {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-
-<!-- Popup Ad -->
-<div id="popupAd" class="popup">
-  <div class="popup-content">
-    <span class="close-btn" onclick="closePopup()">&times;</span>
-    <img src="./images/web.png" alt="Ad" />
+  <div class="popup" id="popupAd">
+    <div class="popup-content">
+      <button class="close-btn" onclick="closePopup()">&times;</button>
+      <img src="./images/web.png" alt="Mahadi Computer Advertisement">
+    </div>
   </div>
-</div>
 
+  <div class="topbar">
+    <div class="container topbar-wrap">
+      <span><i class="fa-solid fa-location-dot"></i> সৌদি আরব ও বাংলাদেশ (অনলাইন সার্ভিস)</span>
+      <span><i class="fa-solid fa-phone"></i> +966 503904925</span>
+    </div>
+  </div>
 
-
-<header>
-    
-        <div class="navbar">
-              <div class="logo">
-                <img src="./images/logo.png" alt="Mahadi Computer Logo">
-                <span>Mahadi Computer</span>
-              </div>
-
-              <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
-              <div class="nav-links" id="navLinks">
-                <a href="./sa.html">Saudi Service</a>
-                <a href="./bd.html">Bangladesh Service</a>
-                <a href="./github.html">Passport</a>
-                <a href="./github.html">Ticket check</a>
-                <a href="./index.html">Contact</a>
-              </div>
+  <header class="header">
+    <div class="container navbar">
+      <a href="#home" class="logo">
+        <div class="logo-mark"><i class="fa-solid fa-laptop-code"></i></div>
+        <div class="logo-text">
+          <h1>Mahadi Computer</h1>
+          <p>Trusted Online Service Center</p>
         </div>
-</header>
+      </a>
 
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#digital">Online Service</a>
+        <a href="#whyus">Why Us</a>
+        <a href="#contact">Contact</a>
+      </nav>
 
+      <button class="menu-toggle" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+  </header>
 
-<section class="hero">
-    <div class="containar">
-        <h1>আপনার সকল অনলাইন আবেদনের নির্ভরযোগ্য প্রতিষ্ঠান</h1>
-        <p>সৌদি আরব ও বাংলাদেশের সকল সরকারি-বেসরকারি অনলাইন সেবা প্রদান করা হয়।</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/966503904925" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> হোয়াটসঅ্যাপ করুন</a>
-            <a href="tel:01768363371" class="btn btn-call"><i class="fas fa-phone"></i> ইমু/কল করুন</a>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2eKPt7Qp7AyVlzHTgrzNJ8qfQnAKCi1dOOSXIy7oMHEl_cg/viewform?usp=dialog" class="btn btn-whatsapp"><i class="fa-solid fa-layer-group"></i> কাজের জন্য জমা দিন</a>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge"><i class="fa-solid fa-shield-heart"></i> নির্ভরযোগ্য অনলাইন আবেদন ও ডকুমেন্ট সাপোর্ট</div>
+        <h2>আপনার সকল অনলাইন কাজের <br>বিশ্বস্ত ঠিকানা</h2>
+        <p>
+          সৌদি আরব ও বাংলাদেশের সরকারি-বেসরকারি বিভিন্ন অনলাইন সেবা, আবেদন, ভিসা, পাসপোর্ট, টিকিট, ডকুমেন্ট সংশোধন এবং জরুরি ডিজিটাল সহায়তা এক জায়গায়।
+        </p>
+
+        <div class="hero-buttons">
+          <a class="btn btn-primary" href="https://wa.me/966503904925" target="_blank"><i class="fa-brands fa-whatsapp"></i> হোয়াটসঅ্যাপ করুন</a>
+          <a class="btn btn-secondary" href="tel:01768363371"><i class="fa-solid fa-phone"></i> ইমু / কল করুন</a>
+          <a class="btn btn-light" href="https://docs.google.com/forms/d/e/1FAIpQLSc2eKPt7Qp7AyVlzHTgrzNJ8qfQnAKCi1dOOSXIy7oMHEl_cg/viewform?usp=dialog" target="_blank"><i class="fa-solid fa-layer-group"></i> কাজ জমা দিন</a>
         </div>
 
-           <div class="home-content">
-                  <h3 class="typing-text"></h3>
+        <div class="typing-line" id="typingText"></div>
+      </div>
+
+      <div class="hero-card">
+        <h3>জনপ্রিয় সেবাসমূহ</h3>
+        <div class="quick-list">
+          <div class="quick-item">
+            <i class="fa-solid fa-passport"></i>
+            <div>
+              <strong>পাসপোর্ট ও ভিসা</strong>
+              <span>নতুন আবেদন, রিনিউ, তথ্য যাচাই ও সংশোধন</span>
             </div>
+          </div>
+          <div class="quick-item">
+            <i class="fa-solid fa-id-card"></i>
+            <div>
+              <strong>ইকামা, এনআইডি, জন্ম নিবন্ধন</strong>
+              <span>চেক, আপডেট, সংশোধন ও আবেদন সহযোগিতা</span>
+            </div>
+          </div>
+          <div class="quick-item">
+            <i class="fa-solid fa-plane-departure"></i>
+            <div>
+              <strong>এয়ার টিকেট ও ট্রাভেল সার্ভিস</strong>
+              <span>বুকিং, রিকনফার্ম, স্ট্যাটাস চেক ও সহায়তা</span>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-<section class="heru">
-<div class="container">
-    <div class="service-grid">
-        <div class="service-card">
-            <h3>সৌদি আরব সেবা</h3>
-            <ul>
-                <li>পাসপোর্ট মালুমাত ও ভিসা চেক</li>
-                <li>জেয়ারা ভিসার মেয়াদ বাড়ানো</li>
-                <li>হুরুব ও এক্সিট আবেদন</li>
-                <li>ইকামা ও বর্ডার নাম্বার চেক</li>
-                <li>ইন্টারন্যাশনাল ড্রাইভিং পার্মিট</li>
-                <li>আবসার, কিউয়া ও ব্যাংক একাউন্ট</li>
-                <li>গাড়ির ফাহাজ ও লাইসেন্স অ্যাপয়েন্টমেন্ট</li>
-                <li><a href="./sa.html">আরো</a></li>
-            </ul>
-        </div>
+  <div class="stats">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <h3>24/7</h3>
+        <p>অনলাইন সাপোর্ট</p>
+      </div>
+      <div class="stat-card">
+        <h3>2 দেশ</h3>
+        <p>সৌদি + বাংলাদেশ সেবা</p>
+      </div>
+      <div class="stat-card">
+        <h3>Fast</h3>
+        <p>দ্রুত প্রসেসিং</p>
+      </div>
+      <div class="stat-card">
+        <h3>Trusted</h3>
+        <p>বিশ্বস্ত সহায়তা</p>
+      </div>
+    </div>
+  </div>
 
-        <div class="service-card">
-            <h3>বাংলাদেশ সেবা</h3>
-            <ul>
-                <li>জন্ম নিবন্ধন ও এনআইডি সংশোধন</li>
-                <li>ই-পাসপোর্ট ও পুলিশ ক্লিয়ারেন্স</li>
-                <li>জমির নামজারি ও খতিয়ান চেক</li>
-                <li>ভর্তি আবেদন ও চাকরির আবেদন</li>
-                <li>ইন্ডিয়ান ও সকল দেশের ভিসা আবেদন</li>
-                <li>বিমানের টিকেট বুকিং ও রি-কনফার্ম</li>
-                <li>ই-টিন ও পল্লী বিদ্যুৎ আবেদন</li>
-                <li><a href="./bd.html">আরো</a></li>
-            </ul>
-        </div>
+  <section id="services">
+  <div class="container">
+    <h2 class="section-title">প্রধান সার্ভিস বিভাগ</h2>
+    <p class="section-subtitle">আপনার প্রয়োজন অনুযায়ী সার্ভিসগুলো আলাদা বিভাগে সাজানো হয়েছে যাতে দ্রুত খুঁজে পান।</p>
 
-              <div class="service-card">
-            <h3>🎨 অন্যান্য সার্ভিস</h3>
-            <ul>
-                <li>ছবি তোলা ও প্রফেশনাল এডিটিং</li>
-                <li>ব্যানার, পোস্টার ও ভিজিটিং কার্ড</li>
-                <li>কম্পিউটার সার্ভিসিং ও প্রশিক্ষণ</li>
-                <li>বিকাশ, নগদ ও মোবাইল রিচার্জ</li>
-                <li>অনলাইনে যে কোন কাজের সমাধান</li>
-                <li><a href="#">আরো</a></li>
-            </ul>
-        </div>
+    <div class="service-overview">
 
-        
+      <!-- Saudi -->
+      <div class="overview-card">
+        <div class="overview-icon"><i class="fa-solid fa-globe"></i></div>
+        <h3>সৌদি আরব সেবা</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i><span>পাসপোর্ট মালুমাত ও ভিসা চেক</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>হুরুব, এক্সিট ও ইকামা সার্ভিস</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>আবসার, কিউয়া ও ব্যাংক সহায়তা</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>লাইসেন্স, মেডিকেল ও অ্যাপয়েন্টমেন্ট</span></li>
+        </ul>
 
-       </div>
-</div>
-</section>
+        <!-- 🔥 Button -->
+        <a href="./sa.html" class="btn-saudi">
+          👉 সব সৌদি সেবা দেখুন
+        </a>
+      </div>
 
+      <!-- Bangladesh -->
+      <div class="overview-card">
+        <div class="overview-icon"><i class="fa-solid fa-flag"></i></div>
+        <h3>বাংলাদেশ সেবা</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i><span>জন্ম নিবন্ধন ও এনআইডি সংশোধন</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>ই-পাসপোর্ট ও পুলিশ ক্লিয়ারেন্স</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>ভর্তি আবেদন ও চাকরির আবেদন</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>ভিসা আবেদন ও টিকেট বুকিং</span></li>
+        </ul>
 
-<!-- Service section start -->
-<section class="Service" id="Service">
-      <div class="works-section">
-        <a href="./bdris.html" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/birth-certificate.png" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>birth-Certificate</h3>
-                        <p>New  birth-Certificate, renewal & correction service.</p>
-                  </div>
-              </div>
-          </a>
+        <!-- 🔥 Button -->
+        <a href="./bd.html" class="btn-bd">
+          👉 সব বাংলাদেশ সেবা দেখুন
+        </a>
+      </div>
 
-          <a href="https://services.nidw.gov.bd/nid-pub/" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/images.png" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>National Id Card</h3>
-                        <p>New Nid, renewal & correction service.</p>
-                  </div>
-              </div>
-          </a>
-
-          <a href="https://www.epassport.gov.bd/landing" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/wired-flat-2464-visa.svg" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Passport</h3>
-                        <p>Responsive & modern websites.</p>
-                  </div>
-              </div>
-          </a>
-
-          <a href="https://pcc.police.gov.bd/ords/f?p=PCC:LOGIN_DESKTOP:" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/police.jfif" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Police Clearance</h3>
-                        <p>Responsive & modern websites.</p>
-                  </div>
-              </div>
-          </a>
-
-          <a href="https://www.google.com/travel/flights?sca_esv=2df5d5c022344074&rlz=1C1YTUH_enSA1200SA1200&output=search&q=google+flight+booking&source=lnms&mode_promoted=true&impression_in_search=true&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpFjzKPapEgCPgp5FnkHrr230XRHbcVpeJXrW3eYbYk1qkPCwIH_ubntUY0h410AIRFUQTmSQngO7HsoOI5nRCoDVZZADOTSaSQNw-FHdA1pIoEV5UYXJAHqWSgYa-PNyj8sBKuRZngASceW7e51mQxJdZJ0ly3SZuwSfnWoM0AhaKadFncz3Rh344_-8jc6s_zSfMmA&ved=1t:200715&ictx=111" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/ticket.png" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Air Ticket</h3>
-                        <p>Domestic & International Flight Booking.</p>
-                  </div>
-              </div>
-          </a>
-
-          <a href="./Saudi_Resident_Card.html" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/71T8LJhGaWL.png" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Saudi Resident Card</h3>
-                        <p>Iqama issue, renewal & correction service</p>
-                  </div>
-              </div>
-          </a>
-
-             <a href="https://sso.qiwa.sa/sign-in?client_id=qiwa&redirect_uri=https%3A%2F%2Fauth.qiwa.sa%2Foauth%2Fcallback&response_type=code&scope=openid+email+phone+profile&state=Ln5bCJQbjUPNuHcK-IUfGu7GwIyxRIgaxhJ-z_HR2BM&code_challenge=lQVN9roQjTh4iKW2xguyll5DNo0LaVw5ZcctAIZ_vVU&code_challenge_method=S256" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/qiwa-logo.avif" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Qiwa Service</h3>
-                        <p>Transfer, Contract & Company Services.</p>
-                  </div>
-              </div>
-          </a>
-
-             <a href="./visa.html" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/wired-flat-2464-visa.svg" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>Visa Service</h3>
-                        <p>Visit, Work & Family Visa.</p>
-                  </div>
-              </div>
-          </a>
-
-               <a href="./hrsd.html" class="work-card-link">
-              <div class="work-card">
-                  <div class="work-icon">
-                    <img src="./images/hrsd.png" alt="Passport Icon">
-                  </div>
-                  <div class="work-content">
-                        <h3>HRSD</h3>
-                        <p>Saudi E-Services Portal</p>
-                  </div>
-              </div>
-          </a>
-
-
+      <!-- General -->
+      <div class="overview-card">
+        <div class="overview-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+        <h3>জেনারেল সার্ভিস</h3>
+        <ul>
+          <li><i class="fa-solid fa-circle-check"></i><span>ছবি এডিটিং ও প্রিন্ট ডিজাইন</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>ব্যানার, পোস্টার, ভিজিটিং কার্ড</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>কম্পিউটার সার্ভিসিং ও সহায়তা</span></li>
+          <li><i class="fa-solid fa-circle-check"></i><span>অনলাইনের যেকোনো কাজের সমাধান</span></li>
+        </ul>
+      </div>
 
     </div>
+  </div>
 </section>
-  <!-- Service section End -->
 
-<div class="whatsapp-float">
-    <a href="https://wa.me/966503904925" target="_blank">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span>হেল্পলাইন</span>
+  <section id="digital" class="why-us">
+    <div class="container">
+      <h2 class="section-title">জনপ্রিয় অনলাইন সার্ভিস</h2>
+      <p class="section-subtitle">চাইলে এগুলোকে আলাদা পেইজে লিংক করতে পারো। এখন সুন্দর কার্ড ডিজাইনে দেখানো হয়েছে।</p>
+
+      <div class="services-grid">
+        <a href="./bdris.html" class="service-tile">
+          <div class="tile-icon"><i class="fa-solid fa-file-lines"></i></div>
+          <h3>Birth Certificate</h3>
+          <p>নতুন আবেদন, সংশোধন ও রিনিউ সাপোর্ট।</p>
+        </a>
+
+        <a href="https://services.nidw.gov.bd/nid-pub/" class="service-tile" target="_blank">
+          <div class="tile-icon"><i class="fa-solid fa-address-card"></i></div>
+          <h3>National ID Card</h3>
+          <p>এনআইডি চেক, আপডেট ও প্রয়োজনীয় সহায়তা।</p>
+        </a>
+
+        <a href="https://www.epassport.gov.bd/landing" class="service-tile" target="_blank">
+          <div class="tile-icon"><i class="fa-solid fa-passport"></i></div>
+          <h3>Passport</h3>
+          <p>ই-পাসপোর্ট আবেদন, রিনিউ ও সংশোধন।</p>
+        </a>
+
+        <a href="https://pcc.police.gov.bd/ords/f?p=PCC:LOGIN_DESKTOP:" class="service-tile" target="_blank">
+          <div class="tile-icon"><i class="fa-solid fa-shield"></i></div>
+          <h3>Police Clearance</h3>
+          <p>পুলিশ ক্লিয়ারেন্স আবেদন সহায়তা।</p>
+        </a>
+
+        <a href="https://www.google.com/travel/flights" class="service-tile" target="_blank">
+          <div class="tile-icon"><i class="fa-solid fa-plane"></i></div>
+          <h3>Air Ticket</h3>
+          <p>ডোমেস্টিক ও ইন্টারন্যাশনাল বুকিং সহায়তা।</p>
+        </a>
+
+        <a href="./Saudi_Resident_Card.html" class="service-tile">
+          <div class="tile-icon"><i class="fa-solid fa-id-card-clip"></i></div>
+          <h3>Saudi Resident Card</h3>
+          <p>ইকামা ইস্যু, রিনিউ ও কারেকশন সাপোর্ট।</p>
+        </a>
+
+        <a href="https://sso.qiwa.sa/sign-in?client_id=qiwa" class="service-tile" target="_blank">
+          <div class="tile-icon"><i class="fa-solid fa-building-circle-check"></i></div>
+          <h3>Qiwa Service</h3>
+          <p>কন্ট্রাক্ট, ট্রান্সফার ও কোম্পানি সার্ভিস।</p>
+        </a>
+
+        <a href="./visa.html" class="service-tile">
+          <div class="tile-icon"><i class="fa-solid fa-stamp"></i></div>
+          <h3>Visa Service</h3>
+          <p>ভিজিট, ওয়ার্ক, ফ্যামিলি ভিসা সহায়তা।</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="whyus">
+    <div class="container">
+      <h2 class="section-title">কেন মাহাদী কম্পিউটার?</h2>
+      <p class="section-subtitle">কাস্টমার যেন দ্রুত বুঝতে পারে তুমি কীভাবে সাহায্য করো — সে জন্য এই অংশটি রাখা হয়েছে।</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <i class="fa-solid fa-bolt"></i>
+          <h3>দ্রুত সার্ভিস</h3>
+          <p>প্রয়োজন অনুযায়ী দ্রুত কাজ শুরু এবং দ্রুত সাড়া দেওয়ার জন্য সুন্দর CTA ও যোগাযোগ ব্যবস্থা রাখা হয়েছে।</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-user-shield"></i>
+          <h3>বিশ্বস্ত সহায়তা</h3>
+          <p>সরকারি ও বেসরকারি বিভিন্ন অনলাইন আবেদন প্রক্রিয়ায় নির্ভরযোগ্য গাইডলাইন ও সহায়তা।</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fa-solid fa-mobile-screen-button"></i>
+          <h3>মোবাইল ফ্রেন্ডলি ডিজাইন</h3>
+          <p>ডেস্কটপ, ট্যাব ও মোবাইলে সমান সুন্দরভাবে দেখা যাবে — কাস্টমারের কাছে প্রফেশনাল লাগবে।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta-banner">
+        <div>
+          <h3>আজই আপনার প্রয়োজনীয় কাজ জমা দিন</h3>
+          <p>হোয়াটসঅ্যাপ, কল অথবা অনলাইন ফর্মের মাধ্যমে সহজে যোগাযোগ করুন। দ্রুত রেসপন্সের জন্য CTA গুলো বড় ও স্পষ্টভাবে রাখা হয়েছে।</p>
+        </div>
+        <a class="btn btn-light" href="https://wa.me/966503904925" target="_blank"><i class="fa-brands fa-whatsapp"></i> এখনই যোগাযোগ করুন</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">যোগাযোগ</h2>
+      <p class="section-subtitle">নিচের যেকোনো মাধ্যমে দ্রুত যোগাযোগ করতে পারেন।</p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h3>মোবাইল / WhatsApp</h3>
+          <a href="https://wa.me/966503904925" target="_blank">+966 503904925</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-envelope"></i>
+          <h3>ইমেইল</h3>
+          <a href="mailto:0503904925m@gmail.com">0503904925m@gmail.com</a>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-earth-asia"></i>
+          <h3>অবস্থান</h3>
+          <p>সৌদি আরব ও বাংলাদেশ<br>অনলাইন সেবা প্রদান</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <h3>Mahadi Computer</h3>
+      <p>আপনার সকল অনলাইন সেবার বিশ্বস্ত ঠিকানা</p>
+      <div class="social-links">
+        <a href="https://www.facebook.com/Mahadicomputer2020" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://m.me/Mahadicomputer2020" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
+        <a href="https://www.tiktok.com/@mahadi_computer" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://youtube.com/@mahadicomputer2020" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.instagram.com/mahadicomputer/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/mahadi-computer-a7b0163b6/" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+      </div>
+      <p style="margin-top:18px; font-size:14px;">&copy; 2026 মাহাদী কম্পিউটার। সকল স্বত্ব সংরক্ষিত।</p>
+    </div>
+  </footer>
+
+  <div class="whatsapp-float">
+    <a href="https://wa.me/966503904925" target="_blank" aria-label="WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
     </a>
-</div>
+  </div>
 
+  <script>
+    const texts = [
+      "আমরা কাজ করি আপনার জন্যে",
+      "আমাদের কাজে থাকে নিশ্চয়তা",
+      "সৌদি ও বাংলাদেশ সেবায় দ্রুত সহায়তা",
+      "পাসপোর্ট, ভিসা, টিকেট, আবেদন — সব এক জায়গায়"
+    ];
 
-<script src="script.js"></script>
+    let count = 0;
+    let index = 0;
+    let currentText = "";
+    let letter = "";
+    const typingEl = document.getElementById("typingText");
+
+    function typeEffect() {
+      if (!typingEl) return;
+      if (count === texts.length) count = 0;
+      currentText = texts[count];
+      letter = currentText.slice(0, ++index);
+      typingEl.textContent = letter;
+
+      if (letter.length === currentText.length) {
+        count++;
+        index = 0;
+        setTimeout(typeEffect, 1400);
+      } else {
+        setTimeout(typeEffect, 75);
+      }
+    }
+
+    typeEffect();
+
+    function toggleMenu() {
+      document.getElementById("navLinks").classList.toggle("active");
+    }
+
+    function closePopup() {
+      document.getElementById("popupAd").style.display = "none";
+    }
+
+    window.addEventListener("load", () => {
+      const popup = document.getElementById("popupAd");
+      if (popup) popup.style.display = "flex";
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('active');
+      });
+    });
+  </script>
+
 
 <!-- 🔥 Firebase Start -->
 <script type="module">
@@ -661,28 +1182,8 @@ footer h3 {
 </script>
 <!-- 🔥 Firebase End -->
 
-<footer>
-    <div class="container">
-        <h3>যোগাযোগ করুন</h3>
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> 0503904925m@gmail.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> সৌদি আরব ও বাংলাদেশ (অনলাইন)</p>
-        </div>
-        <div class="social-links">
-            <a href="https://www.facebook.com/Mahadicomputer2020" target="_blank"><i class="fab fa-facebook"></i></a>
-             <a href="https://m.me/Mahadicomputer2020" target="_blank"><i class="fa-brands fa-facebook-messenger"></i></a>
-            <a href="https://www.tiktok.com/@mahadi_computer" target="_blank"><i class="fab fa-tiktok"></i></a>
-            <a href="https://youtube.com/@mahadicomputer2020" target="_blank"><i class="fab fa-youtube"></i></a>
-             <a href="https://wa.me/966503904925" target="_blank"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://www.instagram.com/mahadicomputer/?hl=en" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/mahadi-computer-a7b0163b6/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
 
 
-
-        </div>
-        <p style="margin-top: 20px; font-size: 12px;">&copy; 2026 মাহাদী কম্পিউটার। সকল স্বত্ব সংরক্ষিত।</p>
-    </div>
-</footer>
 
 </body>
 </html>
